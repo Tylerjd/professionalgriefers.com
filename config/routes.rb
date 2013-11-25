@@ -3,6 +3,9 @@ Progriefers::Application.routes.draw do
 
   root :to => 'pages#welcome'
 
+  match 'servers' => 'servers#index', :via => [:get]
+  match 'servers/forge' => 'servers#forge', :via => [:get]
+  match 'servers/vanilla' => 'servers#vanilla', :via => [:get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
