@@ -46,17 +46,17 @@
             <% if user_signed_in? %>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger btn-large btn-block") %> 
             <% else %>
-              <%= link_to('Login', new_user_session_path, class: "btn btn-primary btn-large btn-block")  %> 
+              <%= link_to('Login', new_user_session_path, class: "btn btn-primary btn-large btn-block")  %>
+              <%= link_to('Register', new_user_registration_path, class: "btn btn-success btn-large btn-block")  %> 
             <% end %>
-              <h1 class="white-text">Test</h1>
-              <li role="presentation" class="dropdown-header white-text">Where to Go</li>
-              <li class="white-text active"><a href="#">Test Active Link</a></li>
-              <li class="white-text"><a href="#">Test Inactive Link</a></li>
+              <hr />
+              <li class="white-text <%= 'active' if current_page?(root_path) %>"><a href="/">Home</a></li>
+              <li class="white-text <%= 'active' if params[:controller] == 'servers' %>"><a href="/servers">Servers</a></li>
+              <li class="white-text <%= 'active' if params[:controller] == 'staff' %>"><a href="/staff">Staff</a></li>
             </div>
           </div>
           <div class="col-md-9">
             <div class="container-fluid text-contain">
-              <h1>Test Text</h1>
               <%= yield %>
             </div>
           </div>
